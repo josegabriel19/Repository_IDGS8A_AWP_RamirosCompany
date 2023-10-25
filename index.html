@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1 id="myh1">Hola Mundo</h1>
+        <button onclick="InnerText()" id="btncambiar">Cambiar</button>
+        <button onclick="Regresar()" id="btnregresar">Regresar</button>
+        <br>
+        <br>
+
+        <input id = "input" type="password" oninput="InnerText()"/>
+    </div>
+
+    <h1 id = "demo">Hola Mundo Test</h1>
+
+    <Button onclick="MyFunction()" id="btntest">MYFUNCTION</Button>
+    <Button onclick="MyfunctionRemove()" id="btntest">REMOVE</Button>
+    <Button onclick="HandlerRemove()" id="REMOVETARGET">REMOVE TARGET</Button>
+
+
+    <br>
+    <p id="demo"></p>
+
+    <script>
+
+        function Regresar()
+        {
+            document.getElementById("myh1").innerText = "Hola mundo";
+        }
+
+        function MyFunction()
+        {
+            var div = document.createElement("div");
+            var title = document.getElementById("demo");
+            div.innerHTML= "Elemento nuevo"
+            title.appendChild(div);
+            div.addEventListener("click", logcon)
+            div.addEventListener("click", HandlerRemove)
+        }
+
+        function MyfunctionRemove()
+        {
+            var title = document.getElementById("demo");
+            var padre = title.parentNode;
+
+            padre.removeChild(title);
+        }
+
+        function logcon(e)
+        {
+            console.log(e)
+        }
+
+        function HandlerRemove(a)
+        {
+            var padre = a.target.parentNode
+
+            padre.removeChild(a.target)
+
+        }
+
+        var inp = "contenido";
+    </script>
+</body>
+</html>
